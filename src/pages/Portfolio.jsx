@@ -35,7 +35,7 @@ const PortfolioPage = () => {
 
   useEffect(() => {
     fetchData();
-  }, [user]);
+  }, [user, income, savings, expenditure, gold, stocks, realEstate, mf, sip]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
