@@ -129,7 +129,7 @@ const LoginSignUp = () => {
             className="flex items-center justify-center bg-white border border-gray-300 rounded shadow px-4 py-2 transition duration-200 ease-in-out transform hover:scale-105"
           >
             <img
-              src="https://image.similarpng.com/very-thumbnail/2020/06/Logo-google-icon-PNG.png"
+              src="https://cdn-teams-slug.flaticon.com/google.jpg"
               alt="Google logo"
               className="w-6 h-6 mr-2"
             />
