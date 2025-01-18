@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Pie, Bar, Doughnut, Line } from 'react-chartjs-2';
+import { Pie, Bar, Doughnut } from 'react-chartjs-2';
 import { getAuth } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
@@ -11,7 +11,6 @@ ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale);
 const PortfolioPage = () => {
   const [userData, setUserData] = useState(null);
   const [income, setIncome] = useState('');
-  const [investmentAmount, setInvestmentAmount] = useState('');
   const [savings, setSavings] = useState('');
   const [expenditure, setExpenditure] = useState('');
   const [gold, setGold] = useState('');
@@ -35,14 +34,13 @@ const PortfolioPage = () => {
 
   useEffect(() => {
     fetchData();
-  }, [user, income, savings, expenditure, gold, stocks, realEstate, mf, sip]);
+  }, [user, fetchData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const userData = {
       income,
-      investmentAmount,
       savings,
       expenditure,
       investment: {
@@ -128,32 +126,6 @@ const PortfolioPage = () => {
     } else {
       return 'Congratulations! You are on track to meet your retirement goal. Consider maintaining a balanced portfolio.';
     }
-  };
-
-   // Line chart for long-term vs short-term investments
-   const investmentComparisonData = {
-    labels: ['Year 1', 'Year 5', 'Year 10', 'Year 20', 'Year 30'],
-    datasets: [
-      {
-        label: 'Short-Term Investments',
-        data: [
-          (parseInt(userData?.investment?.gold) || 0) * 0.03,
-          (parseInt(userData?.investment?.stocks) || 0) * 0.07,
-          (parseInt(userData?.investment?.mf) || 0) * 0.06,
-        ],
-        borderColor: '#ff7043',
-        fill: false,
-      },
-      {
-        label: 'Long-Term Investments',
-        data: [
-          (parseInt(userData?.investment?.sip) || 0) * 0.04,
-          (parseInt(userData?.investment?.realEstate) || 0) * 0.05,
-        ],
-        borderColor: '#42a5f5',
-        fill: false,
-      }
-    ]
   };
 
   return (
