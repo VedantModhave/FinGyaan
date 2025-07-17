@@ -2,6 +2,9 @@ A financial literacy platform to simplify budgeting, saving, investing, and reti
 
 In the project directory, you can run:
 
+<img width="1897" height="910" alt="image" src="https://github.com/user-attachments/assets/85955fa7-3fec-43ce-a0b0-a5f0fc72346a" />
+
+
 ### `npm start`
 
 Runs the app in the development mode.\
